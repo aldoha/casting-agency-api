@@ -22,6 +22,12 @@ def after_request(response):
 
 
 # Routes
+
+@app.route('/')
+def index():
+    return "Casting Agency API"
+
+
 @app.route('/movies')
 @requires_auth(permission='get:movies')
 def receive_movies(payload):
@@ -49,7 +55,7 @@ def create_new_movie(payload):
     movie_id = body.get('id', None)
     title = body.get('title', None)
     release_date = body.get('release_date', None)
-    if None or '' not in (title, release_date):
+    if title is not None and title != '':
         movie = Movie(id=movie_id, title=title, release_date=release_date)
         movie.insert()
     else:
