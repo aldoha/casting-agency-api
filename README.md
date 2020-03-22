@@ -7,36 +7,21 @@ The application can:
 2. Create, edit, delete and retrieve actors records
 3. Link actors to movies records
 
+The app is hosted on https://casitng-agency-api.herokuapp.com/
 
-## To run the app locally:
+## ROLES
 
-1. Create and activate virtualenv
-```
-python3 -m venv venv
-source venv/bin/activate
-```
-2. Install dependencies
-```
-pip install -r requirements.txt
-```
-3. Setup a database
-```
-createdb agency
-psql agency < agency.psql
-```
-4. Run the server in debug mode (will restart on each code change)
-```
-export FLASK_DEBUG=True
-flask run
-```
-5. Navigate to http://localhost:3000/
-6. To run the tests, execute
-```
-dropdb agency_test
-createdb agency_test
-psql agency_test < agency.psql
-python test_app.py
-```
+#### Casting Assistant
+- Can view actors and movies
+#### Casting Director
+- All permissions a Casting Assistant has
+- Add or delete an actor from the database
+- Modify actors or movies
+#### Executive Producer
+- All permissions a Casting Director has
+- Add or delete a movie from the database
+
+To check roles and endpoints use test tokens from `.env`
 
 ## ENDPOINTS
 
@@ -139,3 +124,34 @@ python test_app.py
 - Returns: 
 'deleted' an array of a deleted object
 'success' a boolean value, which depends on successfulness of the request
+
+
+## To run the app locally:
+
+1. Create and activate virtualenv
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+2. Install dependencies
+```
+pip install -r requirements.txt
+```
+3. Setup a database
+```
+createdb agency
+psql agency < agency.psql
+```
+4. Run the server in debug mode (will restart on each code change)
+```
+export FLASK_DEBUG=True
+flask run
+```
+5. Navigate to http://localhost:5000/
+6. To run the tests, execute
+```
+dropdb agency_test
+createdb agency_test
+psql agency_test < agency.psql
+python test_app.py
+```
