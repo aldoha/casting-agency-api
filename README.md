@@ -140,7 +140,7 @@ pip install -r requirements.txt
 3. Setup a database
 ```
 createdb agency
-psql agency < agency.psql
+psql agency < database/agency.psql
 ```
 4. Run the server in debug mode (will restart on each code change)
 ```
@@ -152,6 +152,6 @@ flask run
 ```
 dropdb agency_test
 createdb agency_test
-psql agency_test < agency.psql
+psql agency_test < database/agency.psql
 python test_app.py
 ```
